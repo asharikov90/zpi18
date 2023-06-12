@@ -24,14 +24,12 @@ class Zpi18Controller extends AbstractController
 
             if (str_contains($text, '/start')) {
                 // Получение списка участников группы
-                $members = $telegramBot->getChatMembersCount($chatId);
-                $telegramBot->sendMessage($chatId, 'members: '.$members);
-                // Генерация случайного числа в диапазоне от 0 до количества участников
-                $randomIndex = rand(0, $members - 1);
+                $members = $telegramBot->getChat($chatId)->getActiveUsernames();
                 // Получение информации о случайном участнике
-                $user = $telegramBot->getChatMember($chatId, $randomIndex)->getUser();
-                $message = 'И пидор дня - ' . $user->getFirstName() . ' ' . $user->getLastName();
-                $telegramBot->sendMessage($chatId, $message);
+                $telegramBot->sendMessage($chatId, 'users: '.print_r($members, true));
+                //$user = $telegramBot->getChatMember($chatId, $randomIndex)->getUser();
+                //$message = 'И пидор дня - ' . $user->getFirstName() . ' ' . $user->getLastName();
+                //$telegramBot->sendMessage($chatId, $message);
 
                 return new Response('ok', headers: $headers);
             } else {
