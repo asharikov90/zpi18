@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     mgri_schedule_group_id: '%env(MGRI_SCHEDULE_GROUP_ID)%'
+    mgri_pidor_bot_token: '%env(TELEGRAM_BOT_TOKEN_ZPI18_PIDOR)%'
+    mgri_bot_token: '%env(TELEGRAM_BOT_TOKEN_ZPI18)%'
 
 services:
     # default configuration for services in *this* file

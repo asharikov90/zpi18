@@ -52,7 +52,7 @@ class Zpi18Controller extends AbstractController
             $text = trim($data['message']['text']);
 
             if (str_contains($text, '/rasp')) {
-                $telegramBot = new BotApi($_ENV['TELEGRAM_BOT_TOKEN_ZPI18_PIDOR']);
+                $telegramBot = new BotApi($_ENV['TELEGRAM_BOT_TOKEN_ZPI18']);
                 $schedule = $scheduleService->getSchedule(date('Y-m-d'));
                 $telegramBot->sendMessage($chatId, implode("<br><br>", $schedule));
 
