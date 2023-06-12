@@ -27,9 +27,13 @@ class Zpi18Controller extends AbstractController
                 $members = $telegramBot->getChat($chatId)->getActiveUsernames();
                 // Получение информации о случайном участнике
                 $telegramBot->sendMessage($chatId, 'users: '.print_r($members, true));
-                //$user = $telegramBot->getChatMember($chatId, $randomIndex)->getUser();
-                //$message = 'И пидор дня - ' . $user->getFirstName() . ' ' . $user->getLastName();
-                //$telegramBot->sendMessage($chatId, $message);
+                $pidors = [
+                    'Алтухов',
+                    'Романов',
+                    'Леньшин',
+                ];
+                $rand = rand(0, count($pidors));
+                $telegramBot->sendMessage($chatId, 'И пидор дня - '.$pidors[$rand]);
 
                 return new Response('ok', headers: $headers);
             } else {
