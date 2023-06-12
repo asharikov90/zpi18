@@ -24,6 +24,6 @@ readonly class ScheduleService
         $result[] = $rasp['аудитория'];
         $result[] = $rasp['преподаватель'];
 
-        return $rasp['начало'].'-'.$rasp['конец'].'<br>'.implode('<br>', $result);
+        return $rasp['начало'].'-'.$rasp['конец']."\n".implode("\n", $result);
     }
 }
