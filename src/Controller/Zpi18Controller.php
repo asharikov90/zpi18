@@ -15,16 +15,15 @@ class Zpi18Controller extends AbstractController
     {
         $data = json_decode(file_get_contents('php://input'), true);
         $telegramBot = new BotApi($_ENV['TELEGRAM_BOT_TOKEN_ZPI18_PIDOR']);
-        file_put_contents('/tmp/bot.txt', print_r($_REQUEST, true).'\n'.print_r($data, true));
+        //file_put_contents('/tmp/bot.txt', print_r($_REQUEST, true).'\n'.print_r($data, true));
 
         $headers = ['content-Type' => 'text/json'];
 
         if (!empty($data['message']['text'])) {
             $chatId = $data['message']['from']['id'];
             $text = trim($data['message']['text']);
-            $telegramBot->sendMessage($chatId, 'Test');
 
-            if ($text === '/start') {
+            if (str_contains($text, '/start')) {
                 // Получение списка участников группы
                 $members = $telegramBot->getChatMembersCount($chatId);
                 // Генерация случайного числа в диапазоне от 0 до количества участников
