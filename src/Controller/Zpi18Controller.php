@@ -63,6 +63,6 @@ class Zpi18Controller extends AbstractController
             }
         }
 
-        return new Response('Empty body', Response::HTTP_UNPROCESSABLE_ENTITY, $headers);
+        return new Response('Empty body', Response::HTTP_OK, $headers);
     }
 }
