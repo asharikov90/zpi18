@@ -21,6 +21,7 @@ class Zpi18Controller extends AbstractController
         if (!empty($data['message']['text'])) {
             $chatId = $data['message']['from']['id'];
             $text = trim($data['message']['text']);
+            $telegramBot->sendMessage($chatId, 'Test');
 
             if ($text === '/start') {
                 // Получение списка участников группы
