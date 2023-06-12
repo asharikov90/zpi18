@@ -23,7 +23,7 @@ class Zpi18Controller extends AbstractController
             $chatId = $data['message']['from']['id'];
             $text = trim($data['message']['text']);
 
-            if (str_contains($text, '/start')) {
+            if (str_contains($text, 'start')) {
                 // Получение списка участников группы
                 $members = $telegramBot->getChatMembersCount($chatId);
                 // Генерация случайного числа в диапазоне от 0 до количества участников
