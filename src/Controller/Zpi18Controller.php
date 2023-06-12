@@ -45,6 +45,7 @@ class Zpi18Controller extends AbstractController
     public function schedule(ScheduleService $scheduleService): Response
     {
         $headers = ['content-Type' => 'text/json'];
+        $data = json_decode(file_get_contents('php://input'), true);
 
         if (!empty($data['message']['text'])) {
             $chatId = $data['message']['from']['id'];
