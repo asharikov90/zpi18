@@ -34,11 +34,11 @@ class Zpi18Controller extends AbstractController
 
                 return new Response('ok', headers: $headers);
             } else {
-                return new Response('Unknown command', Response::HTTP_UNPROCESSABLE_ENTITY, $headers);
+                return new Response('Unknown command', Response::HTTP_OK, $headers);
             }
         }
 
-        return new Response('Empty body', Response::HTTP_UNPROCESSABLE_ENTITY, $headers);
+        return new Response('Empty body', Response::HTTP_OK, $headers);
     }
 
     #[Route(path: '/schedule', name: 'app_zpi18_schedule')]
@@ -59,7 +59,7 @@ class Zpi18Controller extends AbstractController
 
                 return new Response('ok', headers: $headers);
             } else {
-                return new Response('Unknown command', Response::HTTP_UNPROCESSABLE_ENTITY, $headers);
+                return new Response('Unknown command', Response::HTTP_OK, $headers);
             }
         }
 
