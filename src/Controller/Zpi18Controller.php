@@ -23,10 +23,6 @@ class Zpi18Controller extends AbstractController
             $text = trim($data['message']['text']);
 
             if (str_contains($text, '/start')) {
-                // Получение списка участников группы
-                $members = $telegramBot->getChat($chatId)->getActiveUsernames();
-                // Получение информации о случайном участнике
-                $telegramBot->sendMessage($chatId, 'users: '.print_r($members, true));
                 $pidors = [
                     'Алтухов',
                     'Романов',
