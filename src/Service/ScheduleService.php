@@ -13,6 +13,8 @@ readonly class ScheduleService
         $url = 'https://stud.mgri.ru/api/Rasp?idGroup='.$this->groupId.'&sdate='.$date;
         $response = json_decode(file_get_contents($url), true);
 
+        file_put_contents('/tmp/schedule.txt', $response);
+
         return array_map(fn (array $raspString): string => $this->getScheduleString($raspString), $response);
     }
 
