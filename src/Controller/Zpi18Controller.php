@@ -63,6 +63,6 @@ class Zpi18Controller extends AbstractController
             }
         }
 
-        return new Response('Empty body', Response::HTTP_OK, $headers);
+        return new Response('ok', Response::HTTP_OK, $headers);
     }
 }
