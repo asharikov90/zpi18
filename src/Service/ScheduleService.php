@@ -20,10 +20,10 @@ readonly class ScheduleService
     {
         $result = [];
 
-        $result[] = $rasp['дисциплина'];
         $result[] = $rasp['аудитория'];
+        $result[] = $rasp['дисциплина'];
         $result[] = $rasp['преподаватель'];
 
-        return $rasp['начало'].'-'.$rasp['конец']."\n".implode("\n", $result);
+        return $rasp['начало'].'-'.$rasp['конец'].", ".implode(", ", $result);
     }
 }
